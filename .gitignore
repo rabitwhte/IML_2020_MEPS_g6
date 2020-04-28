@@ -1,0 +1,4 @@
+*.ipynb_checkpoints
+old/*
+# until now the data is ignored
+*.csv
