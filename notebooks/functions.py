@@ -82,3 +82,10 @@ def plot_target_pred(target_name, target, pred_name, pred, path):
     plt.yticks(size = 12)
     plt.savefig(path + target_name[2:] + ".svg")
     plt.show()
+
+
+
+def find_nth_obs_idx(y, y_pred, n):
+    diff = np.abs(y.values - y_pred)
+    diff_args_srt = np.argsort(diff)
+    return diff_args_srt[n]
