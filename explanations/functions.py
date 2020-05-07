@@ -89,3 +89,17 @@ def find_nth_obs_idx(y, y_pred, n):
     diff = np.abs(y.values - y_pred)
     diff_args_srt = np.argsort(diff)
     return diff_args_srt[n]
+
+
+
+def plot_pvi_boxplots(pvi, n, data, model_name, img_path):
+    pvi_sorted_idx = pvi.importances_mean.argsort()
+    plt.figure(figsize = (10, 8))
+    title = "Permutational variable importance for \n" + model_name
+    plt.title(title, size = 14, fontweight = "bold")
+    plt.grid()
+    plt.boxplot(pvi.importances[pvi_sorted_idx][-n:].T, vert = False, labels = data.columns[pvi_sorted_idx][-n:])
+    plt.xticks(fontsize = 12)
+    plt.yticks(fontsize = 12)
+    plt.savefig(img_path + ".png")
+    plt.show()
