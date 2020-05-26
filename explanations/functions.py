@@ -29,11 +29,11 @@ def read_x_y(path, target_name):
 
 
 
-def get_categorical_features(data, not_cat_cols_list):
+def get_categorical_features(data):
     num_unique = data.nunique()
     categorical_features = num_unique[num_unique <= 10].index.tolist()
     # Remove variables from categorical features list that can be treated as continuous
-    for col in not_cat_cols_list:
+    for col in ["POVCAT15", "RTHLTH31", "MNHLTH31"]:
         categorical_features.remove(col)
     return categorical_features
 
