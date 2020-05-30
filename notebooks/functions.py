@@ -72,7 +72,7 @@ def print_model_results(y_train, y_pred_train, y_test, y_pred_test):
     
 
     
-def plot_target_pred(target_name, target, pred_name, pred, path):
+def plot_target_pred(target_name, target, pred_name, pred, path, img_format = ".svg"):
     plt.figure(figsize = (10, 8))
     plt.scatter(target, pred, s = 90, alpha = 0.7)
     plt.plot(target, target, c = "y", lw = 5)
@@ -80,7 +80,7 @@ def plot_target_pred(target_name, target, pred_name, pred, path):
     plt.ylabel(pred_name, size = 14)
     plt.xticks(size = 12)
     plt.yticks(size = 12)
-    plt.savefig(path + target_name[2:] + ".svg")
+    plt.savefig(path + target_name[2:] + img_format)
     plt.show()
 
 
